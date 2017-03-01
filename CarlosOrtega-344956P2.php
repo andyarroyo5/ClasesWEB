@@ -18,7 +18,7 @@
   <body>
 
     <div class="">
-      <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
+      <form  action="practica2Submit.php" method="POST">
 
         <h1>Conversor de monedas</h1>
 
@@ -44,7 +44,7 @@
 
 
     <?php
-
+/*
     if($_SERVER["REQUEST_METHOD"] == "POST")
      {
   		echo "<h2>Conversión</h2>";
@@ -69,7 +69,7 @@
     $tags = $xpath->query('//span[@class="bld"]');
     /*foreach ($tags as $tag) {
         var_dump($tag->textContent);
-    }*/
+    }
     echo "<br/> ". number_format((float)$cantidad, 2, '.', '') ." MXN son ". @$tags[0]->textContent;
 
     }
@@ -79,14 +79,10 @@
       echo @$error;
 
     }
-
+*/
     ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
-
-<?php
-
-?>

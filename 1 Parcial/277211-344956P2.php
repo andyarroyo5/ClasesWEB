@@ -1,3 +1,4 @@
+<!-- Nosotros declaramos que hemos hecho este trabajo con estricto apego al Código de Honor de la UDEM  -->
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,3 +1,5 @@
+<!-- Nosotros declaramos que hemos hecho este trabajo con estricto apego al Código de Honor de la UDEM  -->
+
 <HTML>
    <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
    <HEAD>
@@ -125,7 +127,7 @@
                 $palabrasRepetidas= array_count_values($palabrasArray);
                 //ordenar de mayor a menor
                 arsort($palabrasRepetidas);
-                //print_r($palabrasRepetidas);
+                //|print_r($palabrasRepetidas);
 
                echo "<br /><i> Resultado de Búsqueda</i> <br>";
 

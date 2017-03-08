@@ -1,9 +1,9 @@
-
+<!-- Nosotros declaramos que hemos hecho este trabajo con estricto apego al Código de Honor de la UDEM  -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Submit Form Práctica 2</title>
   </head>
   <body>
     <?php

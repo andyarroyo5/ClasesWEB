@@ -17,31 +17,13 @@
   <body>
 
 
-    <div class="container">
-      <form class="" action="registro3.php" method="post">
+    <?php
+    session_start();
 
-        <input type="submit" name="enviar" value="Siguiente">
-      </form>
+   print_r($_SESSION["nombre"]);
 
 
-      <h1>Respuesta</h1>
-      <?php
-      session_start();
-      if($_SERVER["REQUEST_METHOD"] == "POST")
-      {
-        print_r($_REQUEST);
-
-        echo $_POST["nombre"];
-        $_SESSION["nombre"]=$_POST["nombre"];
-      }
-      else {
-
-      }
-
-       ?>
-
-    </div>
-
+     ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

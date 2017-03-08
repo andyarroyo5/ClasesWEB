@@ -22,16 +22,16 @@
 
     <div class="container">
 
-      <form class="" action="index.html" method="post">
+      <form class="" action="registro2.php" method="post">
         <span> Perfil Personal </span>
         <div class="container-fluid">
-          Nombre completo:<input type="text" name="nombre" value="">
-          Correo:<input type="email" name="correo" value="">
-          Password: <input type="password" name="" value="">
+          <br>Nombre completo:<input type="text" name="nombre" value="">
+          <br>Correo:<input type="email" name="correo" value="">
+          <br>Password: <input type="password" name="" value="">
           <div class="input-group">
             <span class="input-group-addon"></span>
             <input type="text" class="form-control" placeholder="">
-
+            <input type="submit" name="enviar" value="Siguiente">
           </div>
 
 

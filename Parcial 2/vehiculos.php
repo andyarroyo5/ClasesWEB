@@ -16,11 +16,6 @@
   </head>
   <body>
 
-
-  <?php
-
-   ?>
-
    <table>
       <tr>
         <th>Titulo</th>
@@ -31,6 +26,9 @@
         <th>Imagen</th>
       </tr>
       <?php
+
+
+      //require conexion.php se guardan estos datos
       $server="localhost";
       $user="root";
       $pass="";
@@ -39,9 +37,23 @@
       $conexion2=mysqli_connect($server,$user,$pass,$bd) or die("Error de conexion:".mysqli_connect_error());
 
       $query="SELECT * from vehiculos";
-      $result=mysqli_query($conexion2,$query) or die("Error de consulta".mysqli_error());
 
+      if (isset($_REQUEST['begin']))
+          $begin=$_REQUEST['begin'];
+      else
+      $begin=0;
+
+      $n=3;
+      $instruccion="SELECT * from vehiculos order by titulo limit $begin, $n";
+      $result=mysqli_query($conexion2,$instruccion) or die("Error de consulta".mysqli_error());
       $numRows=mysqli_num_rows($result);
+
+      //si la consulta da 0
+      if($numRows!=0)
+      echo "<a href='". $SERVER['PHP_SELF']. "?begin=". ($begin +$n). "'>Siguiente</a>";
+
+      if($begin!=0)
+      echo "<a href='". $SERVER['PHP_SELF']. "?begin=". ($begin -$n). "'>Anterior</a>";
 
       for ($i=0; $i < $numRows; $i++) {
         # code...

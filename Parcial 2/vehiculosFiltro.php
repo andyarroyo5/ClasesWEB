@@ -29,6 +29,21 @@
   </head>
   <body>
 
+    <form name="formulario">
+          <select name="tipo" onchange="actualizarPagina()">
+            <option value="todos">Todos</option>
+            <option value="auto">Auto</option>
+            <option value="camioneta">Camioneta</option>
+            <option value="motocicleta">Motocicleta</option>
+            <option value="bicicleta">Bicicleta</option>
+            <option value="otro">Otro</option>
+
+        </select>
+    </form>
+
+
+
+
    <table>
       <tr>
         <th>Titulo</th>
@@ -38,6 +53,9 @@
         <th>Fecha</th>
         <th>Imagen</th>
       </tr>
+
+
+
       <?php
 
       //require conexion.php se guardan estos datos
@@ -58,16 +76,8 @@
       $begin=0;
 
       $n=3;
-      $instruccion="SELECT * from vehiculos order by titulo limit $begin, $n";
-      $result=mysqli_query($conexion2,$instruccion) or die("Error de consulta".mysqli_error());
+      $result=mysqli_query($conexion2,$query) or die("Error de consulta".mysqli_error());
       $numRows=mysqli_num_rows($result);
-
-      //si la consulta da 0
-      if($numRows!=0)
-      echo "<a href='". $SERVER['PHP_SELF']. "?begin=". ($begin +$n). "'>Siguiente</a>";
-
-      if($begin!=0)
-      echo "<a href='". $SERVER['PHP_SELF']. "?begin=". ($begin -$n). "'>Anterior</a>";
 
       for ($i=0; $i < $numRows; $i++) {
         # code...
@@ -115,6 +125,43 @@
 
       }
 
+
+              $tipo=$_REQUEST['tipo'];
+
+              echo $tipo;
+
+              if(isset($tipo))
+                $selected=$tipo;
+              else {
+                $selected="Todos";
+              }
+              for ($i=0; $i < count($lista); $i++) {
+                  $cad=trim($lista[$i], "'");
+                  if ($cad==$selected)
+                    echo "<OPTIOND VALUE='$cad' SELECTED>$cad\n";
+                  else
+                    echo "<OPTIOND VALUE='$cad'>$cad\n";
+              }
+
+              echo "</SELECTED></P>\n";
+              echo  "</FORM>\n";
+
+              //Enviar consulta
+              $instruccion="SELECT * from vehiculos";
+              if(isset($tipo) && tipo!="Todos")
+                $instruccion=$instruccion+ "WHERE tipo='$tipo'";
+              else
+                $instruccion=$instruccion+ "order by fecha desc";
+
+
+                $consulta=mysqli_query($conexion2,$instruccion) or die ("Fallo en la consulta");
+
+                //Mostrar resultados de la consulta
+                $nfilas=mysqli_num_rows($consulta);
+                if ($nfilas>0)
+                {
+                  echo "<TABLE BORDER='1'>\n";
+                }
 
 
        ?>

@@ -1,0 +1,13 @@
+{
+    "name": "composer/dependencies",
+    "description": "dependencies",
+    "authors": [
+        {
+            "name": "Andrea Arroyo",
+            "email": "sonia.arroyo@udem.edu"
+        }
+    ],
+    "require": {
+        "facebook/graph-sdk": "^5.4"
+    }
+}
